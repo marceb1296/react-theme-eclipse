@@ -1,0 +1,78 @@
+.themes {
+    position: sticky;
+    margin-top: .5rem;
+    top: 2.5%;
+    display: flex;
+    margin-bottom: -1.8rem;
+    z-index: 99;
+
+    .container {
+        position: relative;
+        padding: .1em;
+        width: 3em;
+        height: 2.8em;
+        overflow: hidden;
+        border-radius: 100%;
+
+        .btn-theme {
+            img {
+                cursor: pointer;
+                position: absolute;
+                width: 80%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                transition: left 2s ease-in-out, box-shadow 1s 1s;
+                border-radius: 100%;
+            }
+
+            :nth-child(2) {
+                left: 150%;               
+            }
+
+            &.active {
+                :nth-child(2) {
+                    left: 50%;
+                } 
+            }
+        }
+    }
+  }
+
+
+@media screen and (min-width: 30em) {
+    .themes {
+        .container {
+            width: 4em;
+            height: 3.8em;
+        }
+    }
+    
+}
+@media screen and (min-width: 48em) {
+    .themes {
+        .container {
+            width: 5em;
+            height: 4.8em;
+        }
+    }
+    
+}
+@media screen and (min-width: 62em) {
+    .themes {
+        .container {
+            width: 6em;
+            height: 5.8em;
+        }
+    }
+    
+}
+@media screen and (min-width: 75em) {
+    .themes {
+        .container {
+            width: 7em;
+            height: 6.8em;
+        }
+    }
+    
+}
