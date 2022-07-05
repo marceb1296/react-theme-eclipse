@@ -27,7 +27,7 @@ example:
 ├── other react dirs...
 ~~~
 
-As all we know, there isnt a specific way to manage a project, so i decide upload the files directly, however, if you put your css files into a css dir, you dont have to do anything else, on the other hand, if you put your css files in other dir, you must edit *themes.js* at the second line
+As all we know, there isnt a specific way to manage a project, so i decide upload the files directly, however, if you put your css files into a _css_ dir, and put your components into a _components_ dir, you dont have to do anything else, on the other hand, if you put your css files in other dir, you must edit *themes.js* at the second line
 
 ~~~
 themes.js
@@ -98,6 +98,7 @@ function reducer(state, action) {
   switch (type) {
     ...
     case 'SET THEME':
+      localStorage.setItem("theme", payload)
       return {theme: payload};
     ...
   }
