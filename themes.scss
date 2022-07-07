@@ -13,6 +13,8 @@
         height: 2.8em;
         overflow: hidden;
         border-radius: 100%;
+        transition: opacity .5s ease-in-out;
+        opacity: .7;
 
         .btn-theme {
             img {
@@ -35,6 +37,10 @@
                     left: 50%;
                 } 
             }
+        }
+        
+        &:hover {
+            opacity: 1;
         }
     }
   }
