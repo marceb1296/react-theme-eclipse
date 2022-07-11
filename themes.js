@@ -36,7 +36,7 @@ const Theme = ({ligthColor, darkColor, position, dispatch}) => {
         } else {
           document.body.style.backgroundColor = ligthColor;
         }
-    }, [theme])
+    }, [theme, darkColor, ligthColor])
 
     const getPosition = (position) => {
         if (position === "start") {
