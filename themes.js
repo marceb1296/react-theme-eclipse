@@ -41,22 +41,19 @@ const Theme = ({ligthColor, darkColor, position, dispatch}) => {
     const getPosition = (position) => {
         if (position === "start") {
             return {
-                justifyContent: "flex-start",
-                marginLeft: "6vw"
+                left: "15%"
             }
         } else if (position === "center") {
             return {
-                justifyContent: "center"
+                left: "54%"
             }
         } else if (position === "end") {
             return {
-                justifyContent: "flex-end",
-                marginRight: "6vw"
+                left: "85%"
             }
         } else {
             return {
-                justifyContent: "flex-end",
-                marginRight: "6vw"
+                left: "85%"
             }
         }
     }
