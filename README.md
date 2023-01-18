@@ -63,7 +63,7 @@ _Required attributes *_
 
 
 ~~~
-render (
+return (
   ...
   <Theme position="start" dispatch={dispatch}/>
   ...
@@ -89,7 +89,7 @@ So, your Reducer function should looks like this
 
 ~~~
 
-const initialState = {theme: "ligth"};
+const initialState = {theme: localStorage.getItem("theme") || "white"};
 
 function reducer(state, action) {
 
