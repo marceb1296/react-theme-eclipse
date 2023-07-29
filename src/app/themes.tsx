@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../css/themes.scss"
 
-
-const initialValue = localStorage.getItem('theme') || 'ligth';
-
+const initialValue: string = localStorage.getItem('theme') || 'ligth';
 
 const Theme = ({ligthColor, darkColor, position, dispatch}) => {
 
