@@ -3,7 +3,7 @@ import { EPosition } from "../types"
 export const getPosition = (position: string | undefined) => {
     if (position === EPosition.START) {
         return {
-            left: "10%"
+            left: "calc(0% + 50px)"
         }
     } 
     
@@ -13,13 +13,7 @@ export const getPosition = (position: string | undefined) => {
         }
     } 
     
-    if (position === EPosition.END) {
-        return {
-            left: "90%"
-        }
-    } 
-        
     return {
-        left: "90%"
+        left: "calc(100% - 50px)"
     }
 }

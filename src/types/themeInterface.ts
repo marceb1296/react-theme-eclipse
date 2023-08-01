@@ -4,7 +4,8 @@ export interface ITheme<T = any> {
     lightColor?: string;
     darkColor?: string;
     position?: EPosition;
-    dispatch: React.Dispatch<T>;
+    initialValue: ETheme;
+    dispatch: (theme: ETheme) => T;
 }
 
 export enum ETheme {

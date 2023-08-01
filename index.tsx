@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { UsingUseReducer } from "./app";
+import { UsingUseReducer, UsingRedux } from "./app";
 
 
 const root = createRoot(document.getElementById("app") as HTMLElement);
