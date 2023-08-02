@@ -1,34 +1,43 @@
 {
-  "name": "vite-project",
-  "private": true,
+  "name": "react-theme-eclipse",
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "test": "vitest",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "@reduxjs/toolkit": "^1.9.5",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/react": "^18.2.17",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "happy-dom": "^10.5.2",
-    "react-redux": "^8.1.1",
-    "sass": "^1.64.1",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.5",
-    "vite-plugin-checker": "^0.6.1",
-    "vite-plugin-dts": "^3.3.1",
-    "vitest": "^0.33.0"
-  },
-  "dependencies": {
+  "description": "Implement in your React App a Responsive Theme Component easily",
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "eslintConfig": {
+		"extends": [
+			"./node_modules/standard/eslintrc.json"
+		]
+	},
+	"license": "MIT",
+	"files": [
+		"dist"
+	],
+	"author": {
+		"email": "marce1996hr@gmail.com",
+		"name": "Marcelino Huerta"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/marceb1296/react-theme-eclipse.git"
+	},
+	"bugs": {
+		"url": "https://github.com/marceb1296/react-theme-eclipse.git/issues"
+	},
+	"main": "./dist/react-theme-eclipse.umd.js",
+	"module": "./dist/react-theme-eclipse.js",
+	"types": "./dist/react-theme-eclipse.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/react-theme-eclipse.js",
+			"require": "./dist/react-theme-eclipse.umd.js"
+		},
+		"./style": {
+			"import": "./dist/style.css",
+			"require": "./dist/style.css"
+		}
+	}
 }

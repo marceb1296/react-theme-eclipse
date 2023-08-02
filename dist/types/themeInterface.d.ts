@@ -1,25 +1,20 @@
-import React from "react";
-
 export interface ITheme {
     lightColor?: string;
     darkColor?: string;
-    position?: "start" | "center"| "end";
+    position?: "start" | "center" | "end";
     initialValue: ETheme;
     dispatch: (theme: ETheme) => void;
     asNavIcon?: boolean;
 }
-
-export enum ETheme {
+export declare enum ETheme {
     LIGHT = "light",
     DARK = "dark"
 }
-
-export enum EPosition {
+export declare enum EPosition {
     START = "start",
     CENTER = "center",
     END = "end"
 }
-
-export enum ESetTheme {
+export declare enum ESetTheme {
     SET_MENU = "SET MENU"
 }
