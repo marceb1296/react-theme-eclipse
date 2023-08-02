@@ -38,6 +38,10 @@
 		"./style": {
 			"import": "./dist/style.css",
 			"require": "./dist/style.css"
+		},
+		"./types": {
+			"import": "./dist/types/index.d.ts",
+			"require": "./dist/types/index.d.ts"
 		}
 	}
 }
