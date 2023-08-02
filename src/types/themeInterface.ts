@@ -1,11 +1,12 @@
 import React from "react";
 
-export interface ITheme<T = any> {
+export interface ITheme {
     lightColor?: string;
     darkColor?: string;
-    position?: EPosition;
+    position?: "start" | "center"| "end";
     initialValue: ETheme;
-    dispatch: (theme: ETheme) => T;
+    dispatch: (theme: ETheme) => void;
+    asNavIcon?: boolean;
 }
 
 export enum ETheme {

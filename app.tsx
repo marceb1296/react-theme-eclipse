@@ -6,7 +6,8 @@ import React from "react";
 
 const initialState: ETheme = localStorage.getItem("theme") as ETheme ?? ETheme.LIGHT
 
-// useReducer
+//#region Code using 'useReducer'
+
 
 interface IAction {
     type: string;
@@ -31,9 +32,10 @@ export const UsingUseReducer = () => {
     return(
         <>
             <h1 style={{
-                color: state === ETheme.LIGHT ? "black" : "white"
+                color: state === ETheme.LIGHT ? "black" : "white",
+                height: "200vh"
             }}>Hola mundo</h1>
-            <Theme dispatch={(theme: string) => dispatch({
+            <Theme dispatch={(theme) => dispatch({
                 type: ESetTheme.SET_MENU,
                 payload: theme
             })} initialValue={state} />
@@ -41,10 +43,12 @@ export const UsingUseReducer = () => {
     )
 }
 
+//#endregion 
 
-// redux
 
-import { configureStore, createSlice } from '@reduxjs/toolkit'
+//#region Code using 'redux'
+
+import { PayloadAction, configureStore, createSlice } from '@reduxjs/toolkit'
 
 const themeSlice = createSlice({
     name: 'theme',
@@ -93,8 +97,35 @@ const Redux = () => {
                 color: theme === ETheme.LIGHT ? "black" : "white",
                 height: "200vh"
             }}>Hola mundo</h1>
-            <Theme dispatch={(theme) => dispatch(themeSlice.actions.setTheme(theme))} initialValue={theme}/>
+            <Theme position="start" dispatch={(theme) => dispatch(themeSlice.actions.setTheme(theme))} initialValue={theme}/>
         </>
     )
     
 }
+
+//#endregion 
+
+//#region Code with 'asNavIcon' and 'useReducer'
+
+export const UsingUseReducerWithNav = () => {
+    
+    const [state, dispatch] = useReducer(reducer, initialState)
+   
+    return(
+        <>
+            <nav>
+                <Theme asNavIcon={true} dispatch={(theme) => dispatch({
+                    type: ESetTheme.SET_MENU,
+                    payload: theme
+                })} initialValue={state} />
+            </nav>
+            <h1 style={{
+                color: state === ETheme.LIGHT ? "black" : "white",
+                height: "200vh"
+            }}>Hola mundo</h1>
+
+        </>
+    )
+}
+
+//#endregion 

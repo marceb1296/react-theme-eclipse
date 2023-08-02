@@ -1,44 +1,43 @@
-import { render, screen, fireEvent } from "../utils" 
+import { render, screen, fireEvent, userEvent, waitFor } from "../utils" 
 import { ETheme } from "../types";
 import { Theme } from "./theme";
 import { vi } from "vitest";
 
-interface ICustomTheme {
-    theme: ETheme
-    dispatch: (theme: string) => void
+
+
+
+let handleTheme: ETheme = ETheme.LIGHT
+
+function dispatch(theme: ETheme)  {
+    handleTheme = theme
 }
 
-let handleTheme: ICustomTheme = {
-    theme: ETheme.LIGHT,
-    dispatch: (theme) => {
-        console.log("CLICK")
-        if (theme === ETheme.LIGHT)  {
-            handleTheme = {
-                ...handleTheme,
-                theme: ETheme.DARK
-            }
-            return
-        }
-        handleTheme = {
-            ...handleTheme,
-            theme: ETheme.LIGHT
-        }
-    }
-}
 
 describe("Theme", () => {
-    
-    beforeEach(() => {
-        render(
-            <Theme dispatch={handleTheme.dispatch} initialValue={handleTheme.theme}/>
-        )
-    }),
-    
+
     it("Should call dispatch fn", () => {
-        const _dispatch = vi.spyOn(handleTheme, "dispatch")
-        
+        const spyDispatch = vi.fn().mockImplementation(dispatch)
+
+        render(
+            <Theme dispatch={spyDispatch} initialValue={handleTheme}/>
+        )
+
         fireEvent.click(screen.getByLabelText("theme-handler"))
         
-        expect(_dispatch).toHaveBeenCalled()
+        expect(spyDispatch).toHaveBeenCalled()
+    })
+
+    it("HandleTheme should be now Dark and 'theme-handler' should toogle 'active' class", async () => {
+        render(
+            <Theme dispatch={dispatch} initialValue={handleTheme}/>
+        )
+
+        expect(handleTheme).toBe(ETheme.DARK)
+        expect(screen.getByLabelText("theme-handler").className).toBe("btn-theme active")
+
+        fireEvent.click(screen.getByLabelText("theme-handler"))
+        
+        expect(handleTheme).toBe(ETheme.LIGHT)
+        expect(screen.getByLabelText("theme-handler").className).toBe("btn-theme")
     })
 })

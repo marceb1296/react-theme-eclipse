@@ -1,44 +1,55 @@
+@mixin theme-container($translate-x, $width, $height) {
+    position: relative;
+    width: $width;
+    height: $height;
+    border-radius: 100%;
+    overflow: hidden;
+    transition: opacity .3s ease, box-shadow .5s ease;
+    opacity: .7;
+    top: 0;
+    transform: translateX($translate-x);
+
+    & .btn-theme {
+        & svg {
+            cursor: pointer;
+            position: absolute;
+            width: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: left 1s ease;
+            border-radius: 100%;
+        }
+
+        & svg:nth-child(2) {
+            left: 150%;               
+        }
+
+        &.active svg:nth-child(2) {
+            left: 50%;
+        }
+    }
+    
+    &:hover {
+        opacity: 1;
+    }
+}
+
 .theme {
     position: fixed;
     z-index: 10;
     top: 30px;
-    //left: 0;
     max-width: 3em;
 
     & .theme-container {
-        position: relative;
-        width: 3em;
-        height: 2.8em;
-        border-radius: 100%;
-        overflow: hidden;
-        transition: opacity .3s ease, box-shadow .5s ease;
-        opacity: .7;
-        top: 0;
-        transform: translateX(-50%);
-
-        & .btn-theme {
-            & svg {
-                cursor: pointer;
-                position: absolute;
-                width: 100%;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                transition: left 1s ease;
-                border-radius: 100%;
-            }
-
-            & svg:nth-child(2) {
-                left: 150%;               
-            }
-
-            &.active svg:nth-child(2) {
-                left: 50%;
-            }
-        }
-        
-        &:hover {
-            opacity: 1;
-        }
+        @include theme-container(-50%, 3em, 2.8em);
     }
+
+    
+ }
+
+ .theme-icon {
+    max-width: 25px;
+
+    @include theme-container(0, 25px, 23px);
  }
