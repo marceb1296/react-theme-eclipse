@@ -14,6 +14,10 @@ git clone https://github.com/marceb1296/react-theme-eclipse.git
 
 ~~~
 import { Theme } from "react-theme-eclipse"
+import "react-theme-eclipse/style"
+
+// only if you're using typescript and need types 
+import { ETheme, ... } from "react-theme-eclipse/types"
 
 
 export const YourComponent = () => {
@@ -35,7 +39,7 @@ export const YourComponent = () => {
             * setTheme() redux | reduxjs/toolkit reducer action
             * setTheme() react SetStateAction
         */
-        <Theme initialValue={theme} dispatch={(theme) => dispatch(setTheme(theme)) | setTheme(theme)}/>
+        <Theme initialValue={theme} dispatch={(theme: ETheme) => dispatch(setTheme(theme)) | setTheme(theme)}/>
         
         // ..other jsx
     )
